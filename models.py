@@ -13,7 +13,11 @@ class Question(db.Model):
 		'qid': fields.Integer,
 		'word': fields.String,
 		'answers':fields.List(fields.Nested({
-				'aid':fields.Integer
+				'aid':fields.Integer,
+				'atype':fields.Integer,
+				'meaning':fields.String,
+				'fromWhat':fields.String,
+				'example':fields.String
 			}))
 	}
 
