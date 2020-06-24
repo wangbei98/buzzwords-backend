@@ -38,6 +38,10 @@ def initdb(drop):
     click.echo('Initialized database.')
 
 
+@app.route('/')
+def index():
+    return '<h1>index<h1>'
+    
 
 api = Api(app)
 # 请求跨域
