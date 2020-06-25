@@ -20,7 +20,7 @@ class AnswerAPI(Resource):
 		atype = args.get('atype')
 		meaning = args.get('meaning')
 		fromWhat = args.get('fromWhat')
-		example = args.get('fromWhat')
+		example = args.get('example')
 		
 		# 判断对应的question是否存在
 		try:
