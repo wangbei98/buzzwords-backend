@@ -75,7 +75,7 @@ class QuestionAndAnswerAPI(Resource):
 		atype = args.get('atype')
 		meaning = args.get('meaning')
 		fromWhat = args.get('fromWhat')
-		example = args.get('fromWhat')
+		example = args.get('example')
 		
 		# 查找词条是否存在
 		print('0')
