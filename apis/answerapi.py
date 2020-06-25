@@ -22,6 +22,17 @@ class AnswerAPI(Resource):
 		fromWhat = args.get('fromWhat')
 		example = args.get('fromWhat')
 		
+		# 判断对应的question是否存在
+		try:
+			question = Question.query.get(qid)
+		except:
+			print("{} question get: {} failure...".format(time.strftime("%Y-%m-%d %H:%M:%S"), qid))
+			response = make_response(jsonify(code=12,message = 'question get fail'))
+			return response
+		# 如果对应question不存在，则返回错误
+		if not question:
+			print("{} question get: {} failure...".format(time.strftime("%Y-%m-%d %H:%M:%S"), qid))
+			response = make_response(jsonify(code=12,message = 'question get fail'))
 
 		try:
 			answer = Answer(qid = qid,atype = atype,meaning = meaning,fromWhat = fromWhat,example = example,created_time = int(time.time()))
