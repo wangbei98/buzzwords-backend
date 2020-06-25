@@ -24,7 +24,7 @@ class AnswerAPI(Resource):
 		
 
 		try:
-			answer = Answer(qid = qid,atype = atype,meaning = meaning,fromWhat = fromWhat,example = example)
+			answer = Answer(qid = qid,atype = atype,meaning = meaning,fromWhat = fromWhat,example = example,created_time = int(time.time()))
 			db.session.add(answer)
 			db.session.commit()
 			response = make_response(jsonify(code=0,message='OK',data = {'answer':answer.to_json()}))
@@ -92,7 +92,7 @@ class QuestionAndAnswerAPI(Resource):
 		print(qid)
 		try:
 			print('5')
-			answer = Answer(qid = qid,atype = atype,meaning = meaning,fromWhat = fromWhat,example = example)
+			answer = Answer(qid = qid,atype = atype,meaning = meaning,fromWhat = fromWhat,example = example,created_time = int(time.time()))
 			print('6')
 			db.session.add(answer)
 			print('7')
