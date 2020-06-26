@@ -4,7 +4,7 @@ from flask import Flask, render_template
 from flask_restful import Api
 from apis.testapi import TestAPI
 from apis.questionapi import QuestionAPI,QuestionsAPI,QuestionsToBeAnsweredAPI
-from apis.answerapi import AnswerAPI,QuestionAndAnswerAPI
+from apis.answerapi import AnswerAPI,QuestionAndAnswerAPI,LikeAPI,DislikeAPI
 from flask_cors import CORS
 from models import Question,Answer
 import click
@@ -41,7 +41,7 @@ def initdb(drop):
 @app.route('/')
 def index():
     return '<h1>index<h1>'
-    
+
 
 api = Api(app)
 # 请求跨域
@@ -56,6 +56,8 @@ api.add_resource(QuestionsToBeAnsweredAPI,'/api/q2beA', endpoint='q2beA')
 
 api.add_resource(AnswerAPI,'/api/answer', endpoint='answer')
 api.add_resource(QuestionAndAnswerAPI,'/api/word', endpoint='word')
+api.add_resource(LikeAPI,'/api/answer/like', endpoint='like')
+api.add_resource(DislikeAPI,'/api/answer/dislike', endpoint='dislike')
 
 
 

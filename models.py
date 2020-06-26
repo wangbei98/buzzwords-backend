@@ -18,7 +18,8 @@ class Question(db.Model):
 				'meaning':fields.String,
 				'fromWhat':fields.String,
 				'example':fields.String,
-				'created_time':fields.Integer
+				'created_time':fields.Integer,
+				'like':fields.Integer
 			}))
 	}
 
@@ -33,6 +34,7 @@ class Answer(db.Model):
 	fromWhat = db.Column(db.String(500))
 	example = db.Column(db.String(500))
 	created_time = db.Column(db.Integer)
+	like = db.Column(db.Integer,default=0)
 
 	qid = db.Column(db.Integer,db.ForeignKey('Question.qid'))
 
@@ -42,7 +44,8 @@ class Answer(db.Model):
 		'meaning':fields.String,
 		'fromWhat':fields.String,
 		'example':fields.String,
-		'created_time':fields.Integer
+		'created_time':fields.Integer,
+		'like':fields.Integer
 	}
 
 	@marshal_with(answer_fields)

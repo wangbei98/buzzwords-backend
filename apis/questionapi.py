@@ -65,3 +65,9 @@ class QuestionsToBeAnsweredAPI(Resource):
 			response = make_response(jsonify(code=13,message = 'question get_all fail'))
 			return response
 
+
+
+
+
+
+

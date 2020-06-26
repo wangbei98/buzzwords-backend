@@ -12,3 +12,4 @@ buzzwords 后端代码
 | 13   | question get_all fail              |      | 							|
 | 21   | answer add fail 				|	   |			|
 | 22   | answer get fail 				|	   |			|
+| 23   | answer edit fail 				|	   |			|

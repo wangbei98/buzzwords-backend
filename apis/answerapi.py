@@ -116,4 +116,44 @@ class QuestionAndAnswerAPI(Resource):
 
 		response = make_response(jsonify(code=0,message='OK',data = {'question':question.to_json()}))
 		return response
+class LikeAPI(Resource):
+	def get(self):
+		parse = reqparse.RequestParser()
+		parse.add_argument('aid',type=int)
+		args = parse.parse_args()
+		aid = args.get('aid')
+		try:
+			answer = Answer.query.get(aid)
+		except:
+			print("{} answer get: {} failure...".format(time.strftime("%Y-%m-%d %H:%M:%S"), qid))
+			response = make_response(jsonify(code=22,message = 'answer get fail'))
+			return response
+		try:
+			answer.like = answer.like + 1
+			db.session.commit()
+			response = make_response(jsonify(code=0,message='OK',data = {'answer':answer.to_json()}))
+			return response
+		except:
+			response = make_response(jsonify(code=23,message = 'answers edit fail'))
+			return response
+class DislikeAPI(Resource):
+	def get(self):
+		parse = reqparse.RequestParser()
+		parse.add_argument('aid',type=int)
+		args = parse.parse_args()
+		aid = args.get('aid')
+		try:
+			answer = Answer.query.get(aid)
+		except:
+			print("{} answer get: {} failure...".format(time.strftime("%Y-%m-%d %H:%M:%S"), qid))
+			response = make_response(jsonify(code=22,message = 'answer get fail'))
+			return response
+		try:
+			answer.like = answer.like - 1
+			db.session.commit()
+			response = make_response(jsonify(code=0,message='OK',data = {'answer':answer.to_json()}))
+			return response
+		except:
+			response = make_response(jsonify(code=23,message = 'answers edit fail'))
+			return response
 
