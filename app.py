@@ -6,6 +6,7 @@ from apis.testapi import TestAPI
 from apis.questionapi import QuestionAPI,QuestionsAPI,QuestionsToBeAnsweredAPI
 from apis.answerapi import AnswerAPI,QuestionAndAnswerAPI,LikeAPI,DislikeAPI
 from apis.translateapi import TranslateAPI
+from apis.searchapi import SearchAPI
 from flask_cors import CORS
 from models import Question,Answer
 import click
@@ -54,6 +55,7 @@ api.add_resource(TestAPI, '/api/test', endpoint='test')
 api.add_resource(QuestionAPI,'/api/question', endpoint='question')
 api.add_resource(QuestionsAPI,'/api/questions', endpoint='questions')
 api.add_resource(QuestionsToBeAnsweredAPI,'/api/q2beA', endpoint='q2beA')
+api.add_resource(SearchAPI,'/api/question/search', endpoint='search')
 
 api.add_resource(AnswerAPI,'/api/answer', endpoint='answer')
 api.add_resource(QuestionAndAnswerAPI,'/api/word', endpoint='word')
@@ -61,5 +63,6 @@ api.add_resource(LikeAPI,'/api/answer/like', endpoint='like')
 api.add_resource(DislikeAPI,'/api/answer/dislike', endpoint='dislike')
 
 api.add_resource(TranslateAPI,'/api/translate', endpoint='translate')
+
 
 
