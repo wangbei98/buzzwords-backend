@@ -13,10 +13,10 @@ def replace_word(word):
 class TranslateAPI(Resource):
 	def get(self):
 		parse = reqparse.RequestParser()
-		parse.add_argument('sentence',type=str)
+		parse.add_argument('before',type=str)
 		args = parse.parse_args()
 
-		before = args.get('sentence')
+		before = args.get('before')
 
 		after = re.sub('(?P<word>[a-zA-Z0-9]+)',replace_word,before)
 
