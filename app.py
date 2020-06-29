@@ -5,6 +5,7 @@ from flask_restful import Api
 from apis.testapi import TestAPI
 from apis.questionapi import QuestionAPI,QuestionsAPI,QuestionsToBeAnsweredAPI
 from apis.answerapi import AnswerAPI,QuestionAndAnswerAPI,LikeAPI,DislikeAPI
+from apis.translateapi import TranslateAPI
 from flask_cors import CORS
 from models import Question,Answer
 import click
@@ -59,5 +60,6 @@ api.add_resource(QuestionAndAnswerAPI,'/api/word', endpoint='word')
 api.add_resource(LikeAPI,'/api/answer/like', endpoint='like')
 api.add_resource(DislikeAPI,'/api/answer/dislike', endpoint='dislike')
 
+api.add_resource(TranslateAPI,'/api/translate', endpoint='translate')
 
 
