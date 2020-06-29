@@ -12,7 +12,7 @@ class SearchAPI(Resource):
 		parse.add_argument('word',type=str)
 		args = parse.parse_args()
 
-		word = args.get('word')
+		word = args.get('word').lower()
 
 		try:
 			question = Question.query.filter_by(word = word).first()
