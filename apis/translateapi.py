@@ -7,9 +7,9 @@ from models import Question,Answer
 from extensions import db
 import re
 
-def replace_word(word):
-	word = word.lower()
-	return 'hhh'
+def replace_word(matched):
+	word = matched.group('word').lower()
+	return '[' + word + ']'
 
 class TranslateAPI(Resource):
 	def get(self):
