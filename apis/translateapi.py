@@ -8,6 +8,7 @@ from extensions import db
 import re
 
 def replace_word(word):
+	word = word.lower()
 	return 'hhh'
 
 class TranslateAPI(Resource):
